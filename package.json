@@ -12,6 +12,7 @@
     "@cloudinary/url-gen": "^1.21.0",
     "@radix-ui/react-popover": "^1.1.6",
     "@reduxjs/toolkit": "^2.6.1",
+    "@types/redux-persist": "^4.0.0",
     "@types/redux-persist-transform-encrypt": "^2.0.4",
     "bootstrap": "^5.3.3",
     "crypto-js": "^4.2.0",
