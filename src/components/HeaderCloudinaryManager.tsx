@@ -61,7 +61,9 @@ const HeaderCloudinaryManager: React.FC<HeaderProps> = ({
                     zIndex: 99999999999999999999999,
                   }}
                   placeholder="Cerca Img"
-                  onChange={(e) => handleSearch(e, setQuery, dispatch)}
+                  onChange={(e) =>
+                    handleSearch(e.target.value, setQuery, dispatch)
+                  }
                   value={query}
                   className="position-absolute"
                 />

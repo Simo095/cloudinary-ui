@@ -27,7 +27,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ images }) => {
   const [renameValue, setRenameValue] = useState<string>("");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const handleRename = (id: number) => {
+  const handleRename = (id: string) => {
     handleRenameImage(id, dispatch, renameValue);
     setRenameId(null);
   };
