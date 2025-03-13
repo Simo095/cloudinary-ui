@@ -8,7 +8,6 @@ import {
   handleSearch,
   handleUpload,
 } from "../utils/requestCloudinary";
-import { TbHomeFilled } from "react-icons/tb";
 import { IoImagesSharp } from "react-icons/io5";
 import { MdOutlineImageSearch } from "react-icons/md";
 import { RiImageAddFill } from "react-icons/ri";
