@@ -21,11 +21,11 @@ const HeaderCloudinaryManager: React.FC<HeaderProps> = ({
   isMobileOrTablet,
 }) => {
   const dispatch = useDispatch();
-  const [name, setName] = useState("Nominami...ah");
-  const [query, setQuery] = useState("");
-  const [preview, setPreview] = useState(null);
-  const [showSearch, setShowSearch] = useState(false);
-  const [showAdd, setShowAdd] = useState(false);
+  const [name, setName] = useState<string>("Nominami...ah");
+  const [query, setQuery] = useState<string>("");
+  const [preview, setPreview] = useState<string | null>(null);
+  const [showSearch, setShowSearch] = useState<boolean>(false);
+  const [showAdd, setShowAdd] = useState<boolean>(false);
 
   return (
     <Navbar expand="lg" bg="black" data-bs-theme="dark" className="mb-3">

@@ -10,8 +10,9 @@ import { Container, Image, Modal } from "react-bootstrap";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { IoCheckmark, IoCloseOutline } from "react-icons/io5";
 import "../css/MasonryGallery.css";
+import { Img } from "@/redux/reducer";
 interface MasonryGalleryProps {
-  images: any;
+  images: Img[];
 }
 
 const MasonryGallery: React.FC<MasonryGalleryProps> = ({ images }) => {
@@ -22,9 +23,9 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ images }) => {
     480: 1,
   };
   const dispatch = useDispatch();
-  const [renameId, setRenameId] = useState(null);
-  const [renameValue, setRenameValue] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [renameId, setRenameId] = useState<number | null>(null);
+  const [renameValue, setRenameValue] = useState<string>("");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleRename = (id: number) => {
     handleRenameImage(id, dispatch, renameValue);
@@ -118,7 +119,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ images }) => {
       >
         <Modal.Body className="p-0">
           <Image
-            src={selectedImage !== null ? selectedImage : ""}
+            src={selectedImage === null ? "" : selectedImage}
             alt="Immagine Ingrandita"
             className="w-100"
           />
