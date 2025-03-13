@@ -58,7 +58,7 @@ const HeaderCloudinaryManager: React.FC<HeaderProps> = ({
                     fontSize: "0.7em",
                     width: "150px",
                     left: !isMobileOrTablet ? "30px" : "285px",
-                    zIndex: 99999999999999999999999,
+                    zIndex: "99999999999999999999999",
                   }}
                   placeholder="Cerca Img"
                   onChange={(e) =>
