@@ -1,5 +1,6 @@
-import { IncomingForm } from "formidable";
 import fs from "fs";
+import { NextApiRequest, NextApiResponse } from "next";
+import IncomingForm from "formidable";
 
 export const config = {
   api: {
@@ -9,14 +10,22 @@ export const config = {
 
 const CLOUD_NAME = process.env.CLOUDINARY_NAME;
 
-export default async function handler(req, res) {
+interface FormFields {
+  public_id: string;
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Metodo non autorizzato" });
   }
 
-  const form = new IncomingForm();
+  const formidable = require("formidable");
+  const form = new formidable.IncomingForm();
 
-  form.parse(req, async (err, fields, files) => {
+  form.parse(req, async (err: Error, fields: FormFields, files: any) => {
     if (err) {
       return res.status(400).json({ message: "Errore Parse Form" + err });
     }

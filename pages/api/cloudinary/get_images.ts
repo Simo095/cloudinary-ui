@@ -1,8 +1,14 @@
+import { Img } from "@/redux/reducer";
+import { NextApiRequest, NextApiResponse } from "next";
+
 const CLOUD_NAME = process.env.CLOUDINARY_NAME;
 const API_KEY = process.env.CLOUDINARY_KEY;
 const API_SECRET = process.env.CLOUDINARY_SECRET;
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   console.log("CLOUD_NAME", CLOUD_NAME);
   if (req.method !== "GET") {
     return res.status(405).json({ message: "Metodo non Autorizzato" });
@@ -10,12 +16,12 @@ export default async function handler(req, res) {
 
   try {
     const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString("base64");
-    let allImages = [];
+    let allImages: Img[] = [];
     let nextCursor = null;
     let url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/resources/image`;
 
     do {
-      const response = await fetch(
+      const response: Response = await fetch(
         nextCursor ? `${url}?next_cursor=${nextCursor}` : url,
         {
           headers: { Authorization: `Basic ${auth}` },

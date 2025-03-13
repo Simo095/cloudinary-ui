@@ -1,10 +1,14 @@
 import crypto from "crypto";
+import { NextApiRequest, NextApiResponse } from "next";
 
 const CLOUD_NAME = process.env.CLOUDINARY_NAME;
 const API_KEY = process.env.CLOUDINARY_KEY;
 const API_SECRET = process.env.CLOUDINARY_SECRET;
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Metodo non autorizzato" });
   }
@@ -24,8 +28,8 @@ export default async function handler(req, res) {
   const formData = new URLSearchParams();
   formData.append("public_id", public_id);
   formData.append("signature", signature);
-  formData.append("api_key", API_KEY);
-  formData.append("timestamp", timestamp);
+  formData.append("api_key", API_KEY !== undefined ? API_KEY : "");
+  formData.append("timestamp", timestamp.toString());
 
   try {
     const response = await fetch(

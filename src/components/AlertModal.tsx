@@ -17,13 +17,7 @@ const AlertModal = () => {
   };
 
   return (
-    <Modal
-      className="dark-modal"
-      show={show}
-      onHide={handleClose}
-      centered
-      focus
-    >
+    <Modal className="dark-modal" show={show} onHide={handleClose} centered>
       <Modal.Body
         style={{ borderRadius: "7px" }}
         className="d-flex flex-column p-0 bg-dark text-white"
