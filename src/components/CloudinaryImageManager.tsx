@@ -37,11 +37,7 @@ const CloudinaryImageManager = () => {
   }, [dispatch]);
 
   return (
-    <Container
-      fluid
-      className="m-0 p-0 mx-1 bg-dark"
-      style={{ minHeight: "100vh" }}
-    >
+    <Container fluid className="m-0 p-0 bg-dark" style={{ minHeight: "100vh" }}>
       <HeaderCloudinaryManager isMobileOrTablet={isMobileOrTablet} />
       {isLoading ? (
         <Container fluid style={{ minHeight: "50vh" }} className="m-0 p-0 mb-2">

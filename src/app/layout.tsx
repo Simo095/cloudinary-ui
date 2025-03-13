@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { ProviderRedux } from "./ProviderRedux";
 import { Analytics } from "@vercel/analytics/react";
 
