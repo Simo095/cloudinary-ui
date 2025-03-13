@@ -1,0 +1,17 @@
+.masonry-grid {
+  display: flex;
+  margin-left: -10px;
+  width: auto;
+}
+
+.masonry-column {
+  padding-left: 10px;
+  background-clip: padding-box;
+}
+
+.masonry-column > img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}

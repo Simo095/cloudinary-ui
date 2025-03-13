@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { ProviderRedux } from "./ProviderRedux";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,8 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body
+        cz-shortcut-listen="true"
+        className={`${geistSans.variable} ${geistMono.variable}`}
+      >
+        <ProviderRedux>{children}</ProviderRedux>
       </body>
     </html>
   );
