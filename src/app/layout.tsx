@@ -4,6 +4,7 @@ import "./globals.css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { ProviderRedux } from "./ProviderRedux";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,10 @@ export default function RootLayout({
         cz-shortcut-listen="true"
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        <ProviderRedux>{children}</ProviderRedux>
+        <ProviderRedux>
+          <Analytics />
+          {children}
+        </ProviderRedux>
       </body>
     </html>
   );
