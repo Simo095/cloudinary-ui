@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { RiImageAddFill } from "react-icons/ri";
 import { IoImagesSharp } from "react-icons/io5";
 
@@ -38,6 +38,15 @@ const CloudinaryImageManager = () => {
 
   return (
     <Container fluid className="m-0 p-0 bg-dark" style={{ minHeight: "100vh" }}>
+      <Button
+        onClick={async () => {
+          await fetch("http://localhost:5001/ping")
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+        }}
+      >
+        Click
+      </Button>
       <HeaderCloudinaryManager isMobileOrTablet={isMobileOrTablet} />
       {isLoading ? (
         <Container fluid style={{ minHeight: "50vh" }} className="m-0 p-0 mb-2">
