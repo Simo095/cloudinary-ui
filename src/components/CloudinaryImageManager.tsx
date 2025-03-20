@@ -38,15 +38,6 @@ const CloudinaryImageManager = () => {
 
   return (
     <Container fluid className="m-0 p-0 bg-dark" style={{ minHeight: "100vh" }}>
-      <Button
-        onClick={async () => {
-          await fetch("http://localhost:5001/ping")
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-        }}
-      >
-        Click
-      </Button>
       <HeaderCloudinaryManager isMobileOrTablet={isMobileOrTablet} />
       {isLoading ? (
         <Container fluid style={{ minHeight: "50vh" }} className="m-0 p-0 mb-2">
